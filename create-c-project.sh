@@ -41,6 +41,9 @@ include_directories(include)
 add_executable(\${PROJECT_NAME} src/main.c)
 EOF
 
+# Acrescenta o projeto no CMakeLists.txt da raiz
+echo "add_subdirectory($PROJECT_NAME)" >> ../CMakeLists.txt
+
 # Opcional: Adiciona README e .gitignore
 echo "# $PROJECT_NAME" > README.md
 echo -e "build/\n*.o\n*.exe\n*.out\n" > .gitignore
@@ -50,4 +53,4 @@ echo "Para compilar:"
 echo "   cd build"
 echo "   cmake .."
 echo "   make"
-echo "   ./\$PROJECT_NAME"
+echo "   ./$PROJECT_NAME"
