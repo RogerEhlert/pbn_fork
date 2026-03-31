@@ -7,7 +7,7 @@
 
 int main()
 {
-    char str1[10], str0[6], str2[10];
+    char str1[10], str2[10];
 
     // str1 = "abc" // NAO PODE!
     // str2 = str1; // NAO PODE!
@@ -37,14 +37,16 @@ int main()
     printf("str1: %s\n", str1);
     printf("str2: %s\n", str2);
     strcat(str1, str2); // concatena str1 com str2 => "abcdef"
-    // strcat(str2, str1);
-    // strcat(str2, str1);
+    strcat(str2, str1); // novamente: agora estoura a capacidade de str2 e invade str1!
+    str1[0] = '@';
     printf("Depois de strcat:\n");
     printf("str1: %p %s\n", str1, str1);
     printf("str2: %p %s\n", str2, str2);
 
     // Comparando strings: strcmp
     // (MESMO comportamento do compareTo do Java)
+    strcpy(str1, "abacate");
+    strcpy(str2, "tomate");
     int comp = strcmp(str1, str2);
     printf("Resultado da strcmp: %d\n", comp);
     if (comp < 0)

@@ -19,9 +19,11 @@ int count_spaces(const char s[])
 int count_spaces_ptr(const char *s)
 {
     int count = 0;
-    for (; *s != '\0'; s++)
+    while(*s != '\0') {
         if (*s == ' ')
             count++;
+        s++;
+    }
     return count;
 }
 
